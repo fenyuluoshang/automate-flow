@@ -48,13 +48,9 @@ module.exports = {
       inject: true,
       template: path.resolve(__dirname, 'public/index.html')
     }),
-    new AutoImport({
-      include: [
-        /\.[tj]sx?$/
-      ],
-      import: [
-        'react'
-      ]
+    AutoImport({
+      include: [/\.[tj]sx?$/],
+      import: ['react']
     })
   ]
 }

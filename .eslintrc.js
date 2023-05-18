@@ -10,6 +10,7 @@ module.exports = {
     project: './tsconfig.json'
   },
   rules: {
+    '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off'
   }
 }
