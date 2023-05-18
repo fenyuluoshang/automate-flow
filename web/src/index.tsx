@@ -1,7 +1,16 @@
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
+import { NextUIProvider } from '@nextui-org/react'
+import App from './App'
 
-const App = () => {
-  return <div>HelloWorld</div>
-}
+const Main = () => (
+  <React.StrictMode>
+  // We use NextUI as the UI framework, see https://nextui.org
+  <NextUIProvider>
+    <App />
+  </NextUIProvider>
+  </React.StrictMode>
+)
 
-ReactDOM.render(<App />, document.getElementById('app'))
+createRoot(
+  document.getElementById('app') as HTMLDivElement
+).render(<Main />)

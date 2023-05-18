@@ -1,6 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const AutoImport = require('unplugin-auto-import/webpack')
+const { ProvidePlugin } = require('webpack')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.tsx'),
@@ -8,6 +8,10 @@ module.exports = {
     path: path.resolve(__dirname, '../dist/web/'),
     filename: '[name].[hash:8].js'
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.wasm']
+  },
+  devtool: 'cheap-module-source-map',
   module: {
     rules: [
       {
@@ -48,9 +52,8 @@ module.exports = {
       inject: true,
       template: path.resolve(__dirname, 'public/index.html')
     }),
-    AutoImport({
-      include: [/\.[tj]sx?$/],
-      import: ['react']
+    new ProvidePlugin({
+      React: 'react' // automatically import react where needed
     })
   ]
 }
