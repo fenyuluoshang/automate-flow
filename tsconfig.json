@@ -12,8 +12,8 @@
     "useDefineForClassFields": true,
     "resolveJsonModule": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "."
   },
-  "include": ["**/*.js", "**/*.ts"],
+  "include": ["**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

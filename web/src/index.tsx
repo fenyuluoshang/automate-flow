@@ -1,8 +1,7 @@
-import React from 'react'
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 
 const App = () => {
-    return (<div>HelloWorld</div>)
+  return <div>HelloWorld</div>
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'))

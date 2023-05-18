@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const AutoImport = require('unplugin-auto-import/webpack')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.tsx'),
@@ -46,6 +47,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: path.resolve(__dirname, 'public/index.html')
+    }),
+    new AutoImport({
+      include: [
+        /\.[tj]sx?$/
+      ],
+      import: [
+        'react'
+      ]
     })
   ]
 }
