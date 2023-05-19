@@ -4,7 +4,7 @@ import App from './App'
 
 const Main = () => (
   <React.StrictMode>
-  // We use NextUI as the UI framework, see https://nextui.org
+  {/** We use NextUI as the UI framework, see https://nextui.org */}
   <NextUIProvider>
     <App />
   </NextUIProvider>
