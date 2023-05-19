@@ -6,12 +6,13 @@ module.exports = {
   entry: path.resolve(__dirname, 'src/index.tsx'),
   output: {
     path: path.resolve(__dirname, '../dist/web/'),
-    filename: '[name].[hash:8].js'
+    filename: 'static/js/[name].[chunkhash:8].js',
+    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.wasm']
   },
-  devtool: 'cheap-module-source-map',
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
@@ -46,6 +47,15 @@ module.exports = {
         ]
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: {
+      rewrites: [{ from: /./, to: '/index.html' }]
+    },
+    allowedHosts: 'all',
+    client: {
+      overlay: false
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({

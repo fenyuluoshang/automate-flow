@@ -1,13 +1,16 @@
 import { createRoot } from 'react-dom/client'
-import { NextUIProvider } from '@nextui-org/react'
 import App from './App'
+import CssBaseline from '@mui/material/CssBaseline'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+
+import '@fontsource/roboto/400.css'
 
 const Main = () => (
   <React.StrictMode>
-  {/** We use NextUI as the UI framework, see https://nextui.org */}
-  <NextUIProvider>
-    <App />
-  </NextUIProvider>
+    <CssBaseline />
+    <ThemeProvider theme={createTheme()}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 )
 

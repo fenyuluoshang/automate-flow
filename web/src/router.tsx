@@ -12,7 +12,13 @@ function defaultLazyHandler (importFn: () => Promise<any>) {
 const Router = createBrowserRouter([
   {
     path: '/',
-    lazy: defaultLazyHandler(async () => await import('./views/Home'))
+    lazy: defaultLazyHandler(async () => await import('./layout/MainLayout')),
+    children: [
+      {
+        path: 'home',
+        lazy: defaultLazyHandler(async () => await import('./views/Home'))
+      }
+    ]
   }
 ])
 
