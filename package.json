@@ -23,7 +23,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
-    "react-use": "^17.4.0"
+    "react-use": "^17.4.0",
+    "sequelize": "^6.31.1",
+    "sqlite3": "^5.1.6"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
@@ -38,6 +40,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.4",
     "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard-with-typescript": "^34.0.1",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",
