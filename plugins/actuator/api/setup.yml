@@ -1,0 +1,11 @@
+name: Base Api Actor
+type: base
+version: 1.0.0
+description: API Actor
+params:
+  - name: port
+    type: int
+    default: 8080
+    description: Port to listen on
+  - name: host
+    type: string
