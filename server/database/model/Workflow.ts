@@ -9,7 +9,10 @@ const Workflow = sequelize.define('workflow', {
   },
   name: DataTypes.STRING,
   description: DataTypes.STRING,
-  status: DataTypes.STRING,
+  status: {
+    type: DataTypes.ENUM,
+    values: ['active', 'inactive']
+  },
   triggerId: DataTypes.INTEGER,
 }, {
   timestamps: true

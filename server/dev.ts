@@ -12,7 +12,7 @@ const compiler = webpack({
 
 const app = express()
 
-app.use(expressApp)
+app.use('/api', expressApp)
 
 app.use(
   webpackMiddleware(compiler)
