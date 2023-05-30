@@ -131,3 +131,4 @@ dist
 
 
 /plugins.json
+/running/database.sqlite

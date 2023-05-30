@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "..";
+import sequelize from "../connection";
 import Workflow from "./Workflow";
 
 
@@ -15,6 +15,8 @@ const Node = sequelize.define('node', {
   nodeName: DataTypes.STRING,
   nodeType: DataTypes.STRING,
   nodeParams: DataTypes.JSON,
+  nextNodeId: DataTypes.INTEGER,
+  leftNodeId: DataTypes.INTEGER,
 })
 
 Node.belongsTo(Workflow, {

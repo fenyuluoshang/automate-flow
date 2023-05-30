@@ -3,6 +3,31 @@ title: Base Webhook Trigger
 type: base
 author: fenyu
 version: 1.0.0
+group: base
 action: trigger
 description: Webhook Trigger
-params: []
+params: 
+  - name: auth-type
+
+results:
+  - name: header
+    type: object
+    description: The Request Header for webhook request
+  - name: method
+    type: string
+    enum:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+    description: The Request Body for webhook request
+  - name: body
+    type: object
+    description: The Request Body for webhook request
+makeup:
+  - name: webhook
+    type: string
+    description: webhook url
+  - name: auth-token
+    type: string
+    description: the auth token for webhook

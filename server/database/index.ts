@@ -1,10 +1,10 @@
-import { Sequelize } from 'sequelize'
-import path from 'path'
+import sequelize from './connection'
+export { default as sequelize } from './connection'
+export { default as Workflow } from './model/Workflow'
+export { default as Node } from './model/Node'
+export { default as User } from './model/User'
+export { default as Trigger } from './model/Trigger'
 
-// Option 2: Passing parameters separately (sqlite)
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: path.resolve(__dirname, '../../running', 'database.sqlite')
-})
-
-export default sequelize
+export async function initDB() {
+  await sequelize.sync({ force: true })
+}

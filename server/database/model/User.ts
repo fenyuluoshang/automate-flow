@@ -1,6 +1,6 @@
 
 import { DataTypes } from "sequelize";
-import sequelize from "..";
+import sequelize from "../connection";
 
 const User = sequelize.define('user', {
   id: {
@@ -9,7 +9,9 @@ const User = sequelize.define('user', {
     autoIncrement: true
   },
   name: DataTypes.STRING,
-  role: DataTypes.INTEGER
+  role: DataTypes.INTEGER,
+  password: DataTypes.STRING,
+  email: DataTypes.STRING,
 }, {
   timestamps: true
 })

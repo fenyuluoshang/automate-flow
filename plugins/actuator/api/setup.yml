@@ -3,6 +3,7 @@ title: "{{ i18n: 'api' }}"
 type: base
 version: 1.0.0
 author: fenyu
+group: base
 action: actuator
 description: "{{ i18n: 'api-description' }}"
 params:

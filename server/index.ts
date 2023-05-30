@@ -1,5 +1,8 @@
 import Express from 'express'
 import webhookExpress from './utils/webhook-load'
+import init from './init'
+
+void init()
 
 const expressApp = Express()
 
