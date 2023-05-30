@@ -1,0 +1,35 @@
+name: api
+title: "{{ i18n: 'api' }}"
+type: base
+version: 1.0.0
+author: fenyu
+action: actuator
+description: "{{ i18n: 'api-description' }}"
+params:
+  - name: url
+    type: string
+    description: The url of the api
+    required: true
+  - name: method
+    type: string
+    enum:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+    description: The method of the api
+    default: GET
+  - name: headers
+    type: object
+    description: The headers of the api
+    default: {}
+  - name: body
+    type: object
+    description: The body of the api
+    default: {}
+    while:
+      - left: "{{ params: current.method }}"
+      - method: in
+      - right:
+        - POST
+        - PUT

@@ -12,7 +12,11 @@
     "useDefineForClassFields": true,
     "resolveJsonModule": true,
     "sourceMap": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "paths": {
+      "@shared/*": ["shared/*"],
+    }
   },
   "include": ["**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx"],
   "exclude": ["node_modules"]
