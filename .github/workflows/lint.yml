@@ -11,9 +11,7 @@ on:
 
 jobs:
   lint:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [18.x]
@@ -28,9 +26,9 @@ jobs:
         version: 6.0.2
     - run: pnpm install
     - run: pnpm lint
-  test:
-     runs-on: ubuntu-latest
 
+  test:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18.x]
