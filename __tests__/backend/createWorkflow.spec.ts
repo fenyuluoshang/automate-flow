@@ -2,13 +2,16 @@
 process.env.DB_TYPE = 'sqlite'
 process.env.DB_HOST = ':memory:'
 
-import { describe, it, afterEach, expect } from '@jest/globals'
-import { Workflow } from '../../server/database'
+import { describe, it, afterEach, expect, beforeEach } from '@jest/globals'
+import { Workflow, initDB } from '../../server/database'
 import createWorkflow from '../../server/src/createWorkflow'
 
 const TEST_WORKFLOW_NAME = 'test'
 
 describe('createWorkflow', () => {
+  beforeEach(async () => {
+    await initDB()
+  })
   afterEach(async () => {
     await Workflow.destroy({
       where: {
