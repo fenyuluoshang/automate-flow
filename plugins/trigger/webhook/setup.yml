@@ -1,0 +1,8 @@
+name: webhook
+title: Base Webhook Trigger
+type: base
+author: fenyu
+version: 1.0.0
+action: trigger
+description: Webhook Trigger
+params: []

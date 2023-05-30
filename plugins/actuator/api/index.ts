@@ -1,5 +1,5 @@
 import { type JsActuator } from '@shared/types/Actuator'
-import axios from 'axios'
+import axios, { type AxiosRequestConfig } from 'axios'
 import { isString } from 'lodash-unified'
 
 const ApiActuator: JsActuator = {
@@ -7,10 +7,10 @@ const ApiActuator: JsActuator = {
     if (!isString(params.url)) return false
     return true
   },
-  run: async (params: any) => {
+  run: async (params: AxiosRequestConfig<any>) => {
     return await axios.request({
-      url: params.url,
-      method: isString(params.method) ? params.method : 'get'
+      ...params,
+      method: isString(params.method) ? params.method : 'get',
     })
   }
 }

@@ -15,7 +15,7 @@ const Router = createBrowserRouter([
     lazy: defaultLazyHandler(async () => await import('./layout/MainLayout')),
     children: [
       {
-        path: 'home',
+        path: '',
         lazy: defaultLazyHandler(async () => await import('./views/Home'))
       }
     ]
