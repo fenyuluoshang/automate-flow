@@ -15,7 +15,8 @@
     "baseUrl": ".",
     "experimentalDecorators": true,
     "paths": {
-      "@shared/*": ["shared/*"],
+      "@server/*": ["server/*"],
+      "@shared/*": ["shared/*"]
     }
   },
   "include": ["**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx"],
