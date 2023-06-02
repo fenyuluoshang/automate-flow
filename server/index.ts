@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import { createExpressServer } from 'routing-controllers'
 import webhookExpress from './utils/webhook-load'
 import init from './init'
+import "reflect-metadata"
 
 void init()
 
@@ -33,9 +34,9 @@ expressApp.use(bodyParser.json())
 // })
 
 expressApp.use(
-  '/api',
   createExpressServer({
-    controllers: [path.join(__dirname, 'src/**/*.controller.ts')]
+    routePrefix: '/api',
+    controllers: [path.join(__dirname, 'src/**/*.controller.ts'), path.join(__dirname, 'src/**/*.controller.js')]
   })
 )
 
