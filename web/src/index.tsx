@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client'
-import App from './App'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
+import App from './App'
 
 import '@fontsource/roboto/400.css'
 

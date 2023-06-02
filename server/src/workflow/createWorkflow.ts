@@ -1,4 +1,4 @@
-import { Workflow } from '../database'
+import { Workflow } from '../../database'
 
 async function createWorkflow(name: string, description?: string) {
   const workflow = await Workflow.create({

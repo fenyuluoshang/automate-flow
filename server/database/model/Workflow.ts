@@ -14,6 +14,10 @@ const Workflow = sequelize.define('workflow', {
     values: ['active', 'inactive']
   },
   triggerId: DataTypes.INTEGER,
+  nodesIdCache: {
+    type: DataTypes.TEXT,
+    comment: "JSON string of array of node ids"
+  }
 }, {
   timestamps: true
 })

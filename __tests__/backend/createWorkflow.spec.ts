@@ -4,7 +4,7 @@ process.env.DB_HOST = ':memory:'
 
 import { describe, it, afterEach, expect, beforeEach } from '@jest/globals'
 import { Workflow, initDB } from '../../server/database'
-import createWorkflow from '../../server/src/createWorkflow'
+import createWorkflow from '../../server/src/workflow/createWorkflow'
 
 const TEST_WORKFLOW_NAME = 'test'
 

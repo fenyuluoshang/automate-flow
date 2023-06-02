@@ -1,8 +1,8 @@
+import path from 'path'
 import webpackMiddleware from 'webpack-dev-middleware'
 import webpack from 'webpack'
 import express from 'express'
 import expressApp from './index'
-import path from 'path'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const compiler = webpack({
@@ -12,7 +12,7 @@ const compiler = webpack({
 
 const app = express()
 
-app.use('/api', expressApp)
+app.use(expressApp)
 
 app.use(
   webpackMiddleware(compiler)

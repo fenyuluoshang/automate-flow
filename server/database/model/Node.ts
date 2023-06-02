@@ -13,7 +13,11 @@ const Node = sequelize.define('node', {
     type: DataTypes.INTEGER,
   },
   nodeName: DataTypes.STRING,
-  nodeType: DataTypes.STRING,
+  nodeType: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    comment: "is the node actor name"
+  },
   nodeParams: DataTypes.JSON,
   nextNodeId: DataTypes.INTEGER,
   leftNodeId: DataTypes.INTEGER,

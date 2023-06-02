@@ -1,5 +1,5 @@
-import { memo } from 'react'
 import { Button } from '@mui/material'
+import { memo } from 'react'
 
 const Home = () => {
   return (

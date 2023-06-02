@@ -4,6 +4,7 @@ export { default as Workflow } from './model/Workflow'
 export { default as Node } from './model/Node'
 export { default as User } from './model/User'
 export { default as Trigger } from './model/Trigger'
+export { default as Log } from './model/Log'
 
 export async function initDB() {
   await sequelize.sync({ force: true })
