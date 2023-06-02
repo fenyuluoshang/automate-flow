@@ -11,7 +11,7 @@
     "build:web": "webpack --config web/webpack.config.js --mode production",
     "run:backend": "cross-env NODE_ENV=production ts-node server/index.ts",
     "postinstall": "node ./scripts/plugins-install.js",
-    "test": "jest"
+    "test": "cross-env NODE_ENV=production DB_TYPE=sqlite DB_HOST=':memory:' jest"
   },
   "keywords": [],
   "author": "",
