@@ -2,7 +2,10 @@ import path from 'path'
 import webpackMiddleware from 'webpack-dev-middleware'
 import webpack from 'webpack'
 import express from 'express'
-import expressApp from './index'
+import init from './init'
+import expressApp from './app'
+
+void init()
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const compiler = webpack({
