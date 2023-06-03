@@ -19,9 +19,10 @@ export interface IExpression {
   expressionWorld: string
 }
 
+const ExpressionReg = /{{\s*([a-zA-Z0-9]+)\s*(\(([a-zA-Z0-9]+)\))?\s*:\s*([\S]*)\s*}}/
+
 export function parseExpression(expression: string): IExpression | null {
-  const expressionReg = /{{\s*([a-zA-Z0-9]+)\s*(\(([a-zA-Z0-9]+)\))?\s*:\s*([\S]*)\s*}}/
-  const match = expression.match(expressionReg)
+  const match = expression.match(ExpressionReg)
   if (match != null) {
     const type = match[1]
     const renderMethod = (match[3] ?? 'lodash').toLowerCase()
@@ -33,4 +34,17 @@ export function parseExpression(expression: string): IExpression | null {
     }
   }
   return null
+}
+
+export function renderExpression(input: string): Array<string | IExpression> {
+  if(input === '') return []
+  const match = input.match(ExpressionReg)
+  if (match != null) {
+    return [
+      ...renderExpression(input.substring(0, match.index as number)),
+      parseExpression(match[0]) as IExpression,
+      ...renderExpression(input.substring(match.index as number + match[0].length))
+    ]
+  }
+  return [input]
 }
