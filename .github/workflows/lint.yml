@@ -42,6 +42,6 @@ jobs:
       with:
         version: 6.0.2
     - run: pnpm install
-    - run: pnpm run test --coverage
+    - run: pnpm test:cov
     - name: Update Coverage Badge
       uses: we-cli/coverage-badge-action@main
