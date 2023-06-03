@@ -1,7 +1,6 @@
 # Linked-Flow
 
 ![Apache License](https://badgen.net/badge/license/Apache)
-[![cov](https://fenyuluoshang.github.io/automate-flow/badges/coverage.svg)](https://github.com/fenyuluoshang/automate-flow/actions)
 
 ## What Is Linked Flow
 
