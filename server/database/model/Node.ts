@@ -20,7 +20,7 @@ const Node = sequelize.define('node', {
   },
   nodeParams: DataTypes.JSON,
   nextNodeId: DataTypes.INTEGER,
-  leftNodeId: DataTypes.INTEGER,
+  parentNodeId: DataTypes.INTEGER,
 })
 
 Node.belongsTo(Workflow, {

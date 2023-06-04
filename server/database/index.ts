@@ -8,5 +8,5 @@ export { default as Log } from './model/Log'
 export { default as NodeLog } from './model/NodeLog'
 
 export async function initDB() {
-  await sequelize.sync({ force: true })
+  await sequelize.sync()
 }
