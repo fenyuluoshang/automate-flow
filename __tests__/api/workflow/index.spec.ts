@@ -29,4 +29,10 @@ describe('Workflow API', () => {
     })
     expect(workflow).not.toBeNull()
   })
+
+  it('should get a workflow', async () => {
+    const res = await request.get('/api/workflow')
+    expect(res.status).toBe(200)
+    expect(res.body.data).toBeInstanceOf(Array)
+  })
 })
