@@ -1,10 +1,11 @@
 /* eslint-disable import/first */
 process.env.DB_TYPE = 'sqlite'
 process.env.DB_HOST = ':memory:'
+import { v4 as uuidv4  } from 'uuid'
 import { Workflow, initDB } from '../../server/database'
 import createWorkflow from '../../server/src/workflow/createWorkflow'
 
-const TEST_WORKFLOW_NAME = 'test'
+const TEST_WORKFLOW_NAME = uuidv4()
 
 describe('createWorkflow', () => {
   beforeEach(async () => {
@@ -20,5 +21,13 @@ describe('createWorkflow', () => {
     })
 
     expect(workflow).not.toBeNull()
+  })
+
+  afterEach(async () => {
+    await Workflow.destroy({
+      where: {
+        name: TEST_WORKFLOW_NAME
+      }
+    })
   })
 })

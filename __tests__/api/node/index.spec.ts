@@ -1,6 +1,7 @@
 import supertest from "supertest"
 import init from '../../../server/init'
 import app from '../../../server/app'
+import { Workflow, Node } from '../../../server/database'
 
 const TEST_WORKFLOW_NAME = 'test'
 
@@ -148,6 +149,19 @@ describe('Node API', () => {
       })
 
       expect(res.status).toBe(500)
+    })
+
+    afterEach(async () => {
+      await Node.destroy({
+        where: {
+          workflowId
+        }
+      })
+      await Workflow.destroy({
+        where: {
+          id: workflowId
+        }
+      })
     })
   })
 })
