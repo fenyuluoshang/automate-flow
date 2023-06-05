@@ -3,6 +3,8 @@ import init from '../../../server/init'
 import app from '../../../server/app'
 import { Workflow } from '../../../server/database'
 
+const TEST_WORKFLOW_NAME = 'test'
+
 describe('Workflow API', () => {
 
   let request: supertest.SuperTest<supertest.Test>
@@ -24,7 +26,7 @@ describe('Workflow API', () => {
     expect(res.body.data).toHaveProperty('updatedAt')
     const workflow = await Workflow.findOne({
       where: {
-        name: 'test'
+        name: TEST_WORKFLOW_NAME
       }
     })
     expect(workflow).not.toBeNull()

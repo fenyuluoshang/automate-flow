@@ -10,13 +10,7 @@ describe('createWorkflow', () => {
   beforeEach(async () => {
     await initDB()
   })
-  afterEach(async () => {
-    await Workflow.destroy({
-      where: {
-        name: TEST_WORKFLOW_NAME
-      }
-    })
-  })
+
   it('should create a workflow with name', async () => {
     await createWorkflow(TEST_WORKFLOW_NAME)
     const workflow = await Workflow.findOne({
