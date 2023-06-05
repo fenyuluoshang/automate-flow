@@ -6,6 +6,8 @@ const TEST_WORKFLOW_NAME = 'test'
 
 describe('Node API', () => {
 
+  console.error = jest.fn();
+
   let request: supertest.SuperTest<supertest.Test>
 
   beforeAll(async ()=>{
