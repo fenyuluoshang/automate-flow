@@ -138,5 +138,16 @@ describe('Node API', () => {
 
       expect(res.status).toBe(500)
     })
+
+    it('should throw error with wrong plugin type', async () => {
+      const res = await request.put('/api/node').send({
+        name: 'test',
+        type: 'wrong',
+        workflowId,
+        nodeConfig: {}
+      })
+
+      expect(res.status).toBe(500)
+    })
   })
 })
