@@ -68,5 +68,73 @@ describe('Node API', () => {
       expect(res.body.data).toHaveProperty('createdAt')
       expect(res.body.data).toHaveProperty('updatedAt')
     })
+
+    it('should throw error without parent node', async () => {
+      await request.put('/api/node').send({
+        name: 'test',
+        type: 'api',
+        workflowId,
+        nodeConfig: {},
+      })
+
+
+      const res = await request.put('/api/node').send({
+        name: 'test',
+        type: 'api',
+        workflowId,
+        nodeConfig: {},
+        parentNodeId: 1
+      })
+
+      expect(res.status).toBe(500)
+
+      const resNext = await request.put('/api/node').send({
+        name: 'test',
+        type: 'api',
+        workflowId,
+        nodeConfig: {},
+      })
+      expect(resNext.status).toBe(500)
+    })
+
+    it('should throw error with parent node has next node', async () => {
+      const resParent = await request.put('/api/node').send({
+        name: 'test',
+        type: 'api',
+        workflowId,
+        nodeConfig: {}
+      })
+
+      const nodeId = resParent.body.data.nodeId
+
+      await request.put('/api/node').send({
+        name: 'test',
+        type: 'api',
+        workflowId,
+        nodeConfig: {},
+        parentNodeId: nodeId
+      })
+
+      const res = await request.put('/api/node').send({
+        name: 'test',
+        type: 'api',
+        workflowId,
+        nodeConfig: {},
+        parentNodeId: nodeId
+      })
+
+      expect(res.status).toBe(500)
+    })
+
+    it('should throw error with no workflow', async () => {
+      const res = await request.put('/api/node').send({
+        name: 'test',
+        type: 'api',
+        workflowId: 10000,
+        nodeConfig: {}
+      })
+
+      expect(res.status).toBe(500)
+    })
   })
 })

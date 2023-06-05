@@ -19,6 +19,8 @@ describe('expression test', () => {
       renderMethod: 'jq',
       expressionWorld: '.response.data'
     })
+
+    expect(parseExpression('{{ response.data }}')).toEqual(null)
   })
 
   it('renderExpression', () => {

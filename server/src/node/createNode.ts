@@ -50,7 +50,7 @@ async function createNode(nodeData: NodeData) {
   let parentNode: Model | null = null
   if (nodeData.parentNodeId != null) {
     parentNode = await Node.findByPk(nodeData.parentNodeId)
-    if (parentNode == null) {
+    if (parentNode == null || parentNode.dataValues.workflowId !== nodeData.workflowId) {
       throw new NeedParentNodeError('Parent node not found')
     }
     if (parentNode.dataValues.nextNodeId != null) {
