@@ -42,6 +42,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: pnpm install
-    - run: pnpm test:cov
+    - run: pnpm test:cov --coverageReporters='cobertura'
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
