@@ -12,8 +12,8 @@
     "run:backend": "cross-env NODE_ENV=production ts-node server/index.ts",
     "postinstall": "node ./scripts/plugins-install.js",
     "test": "cross-env NODE_ENV=production DB_TYPE=sqlite DB_HOST=':memory:' jest",
-    "test:cov": "npm run test --coverage",
-    "test:ci": "npm run test:cov --coverageReporters='cobertura'"
+    "test:cov": "cross-env NODE_ENV=production DB_TYPE=sqlite DB_HOST=':memory:' jest --coverage",
+    "test:ci": "cross-env NODE_ENV=production DB_TYPE=sqlite DB_HOST=':memory:' jest --coverage --coverageReporters='cobertura'"
   },
   "keywords": [],
   "author": "",
