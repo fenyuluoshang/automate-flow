@@ -1,8 +1,8 @@
 import supertest from 'supertest'
 import { v4 as uuidv4 } from 'uuid'
-import init from '../../../server/init'
-import app from '../../../server/app'
-import { Workflow } from '../../../server/database'
+import init from '~server/init'
+import app from '~server/app'
+import { Workflow } from '~server/database'
 
 const TEST_WORKFLOW_NAME = uuidv4()
 

@@ -1,7 +1,7 @@
 import { Put, JsonController, BodyParam, Get } from 'routing-controllers'
-import { SuccessReturn } from '../../types/http/BaseReturn';
 import createWorkflow from './createWorkflow'
 import { getWorkflows } from './getWorkflow';
+import { SuccessReturn } from '~server/types/http/BaseReturn';
 
 @JsonController('/workflow')
 class WorkflowController {

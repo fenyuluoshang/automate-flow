@@ -1,6 +1,6 @@
 import { Get, JsonController } from 'routing-controllers'
-import { SuccessReturn } from '../../types/http/BaseReturn';
-import { getPlugins } from '../../utils/cachePlugins'
+import { SuccessReturn } from '~server/types/http/BaseReturn';
+import { getPlugins } from '~server/utils/cachePlugins'
 
 @JsonController('/plugins')
 class PluginController {

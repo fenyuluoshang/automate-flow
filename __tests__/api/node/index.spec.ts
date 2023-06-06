@@ -1,7 +1,7 @@
 import supertest from "supertest"
-import init from '../../../server/init'
-import app from '../../../server/app'
-import { Workflow, Node } from '../../../server/database'
+import init from '~server/init'
+import app from '~server/app'
+import { Workflow, Node } from '~server/database'
 
 const TEST_WORKFLOW_NAME = 'test'
 

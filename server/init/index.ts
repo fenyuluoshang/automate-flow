@@ -1,3 +1,4 @@
+import 'module-alias/register'
 import { loadPlugins } from '../utils/cachePlugins'
 import { initDB } from '../database/'
 import User from '../database/model/User'
