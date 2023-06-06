@@ -1,8 +1,8 @@
 # Linked-Flow
 
-![Apache License](https://badgen.net/badge/license/Apache) 
-![Code Coverage](https://badgen.net/codecov/c/github/fenyuluoshang/automate-flow) 
-![Use TypeScript](https://badgen.net/badge/icon/typescript?icon=typescript&label) 
+![Apache License](https://badgen.net/badge/license/Apache)
+[![Code Coverage](https://badgen.net/codecov/c/github/fenyuluoshang/automate-flow)](https://app.codecov.io/gh/fenyuluoshang/automate-flow)
+![Use TypeScript](https://badgen.net/badge/icon/typescript?icon=typescript&label)
 [![LintAndTest](https://github.com/fenyuluoshang/automate-flow/actions/workflows/lint.yml/badge.svg)](https://github.com/fenyuluoshang/automate-flow/actions/workflows/lint.yml)
 
 ## What Is Linked Flow
