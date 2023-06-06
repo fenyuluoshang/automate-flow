@@ -1,4 +1,4 @@
-import { parseExpression, renderExpression } from '../../shared/util/expression'
+import { parseExpression, renderExpression } from '~shared/util/expression'
 
 describe('expression test', () => {
   it('parseExpression', () => {

@@ -1,5 +1,5 @@
 import express from 'express'
-import Trigger from '../database/model/Trigger'
+import Trigger from '~server/database/model/Trigger'
 
 const webhookExpress = express()
 

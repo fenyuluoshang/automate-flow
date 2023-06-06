@@ -1,8 +1,8 @@
 import { type Model } from 'sequelize'
 import { HttpError } from 'routing-controllers'
-import { getPlugins } from '../../utils/cachePlugins'
-import { type NodeData } from '../../types/http/NodeDatas'
-import { Node, Workflow } from '../../database'
+import { getPlugins } from '~server/utils/cachePlugins'
+import { type NodeData } from '~server/types/http/NodeDatas'
+import { Node, Workflow } from '~server/database'
 
 export class NoSearchPluginError extends HttpError {
   constructor(message: string) {

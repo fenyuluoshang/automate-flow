@@ -16,8 +16,11 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@server/*": ["server/*"],
-      "@shared/*": ["shared/*"]
+      "~server/*": ["server/*"],
+      "~web/*": ["web/*"],
+      "~shared/*": ["shared/*"],
+      "~test/*": ["__tests__/*"],
+      "~/*": ["./*"]
     }
   },
   "include": ["**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx"],

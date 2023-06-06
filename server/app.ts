@@ -1,3 +1,4 @@
+import 'module-alias/register'
 import path from 'path'
 import Express from 'express'
 import bodyParser from 'body-parser'
