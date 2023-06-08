@@ -1,25 +1,44 @@
-import { DataTypes } from "sequelize";
-import sequelize from "../connection";
+import { DataTypes } from 'sequelize'
+import {
+  AutoIncrement,
+  Column,
+  Model,
+  PrimaryKey,
+  Table,
+  Comment,
+  DataType,
+  AllowNull
+} from 'sequelize-typescript'
 
-const Workflow = sequelize.define('workflow', {
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  name: DataTypes.STRING,
-  description: DataTypes.STRING,
-  status: {
-    type: DataTypes.ENUM,
-    values: ['active', 'inactive']
-  },
-  triggerId: DataTypes.INTEGER,
-  nodesIdCache: {
-    type: DataTypes.TEXT,
-    comment: "JSON string of array of node ids"
-  }
-}, {
+@Table({
   timestamps: true
 })
+class Workflow extends Model {
+  @PrimaryKey
+  @AutoIncrement
+  @Column(DataType.INTEGER)
+  workflowId!: number
+
+  @AllowNull(false)
+  @Column(DataType.STRING(255))
+  name!: string
+
+  @Column(DataType.STRING(255))
+  description?: string
+
+  @Column({
+    type: DataTypes.ENUM,
+    values: ['active', 'inactive'],
+    defaultValue: 'active'
+  })
+  status: 'active' | 'inactive' = 'active'
+
+  @Column(DataType.INTEGER)
+  triggerId?: number
+
+  @Comment('JSON string of array of node ids')
+  @Column(DataType.STRING(255))
+  nodesIdCache?: string
+}
 
 export default Workflow

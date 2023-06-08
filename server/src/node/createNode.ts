@@ -28,7 +28,7 @@ async function updateNodeIdCaches(workflowId: number) {
   const nodes = await Node.findAll({ where: { workflowId }, order: [['nodeId', 'ASC']] })
   const nodeIds = nodes.map((node: any) => node.dataValues.nodeId)
   const nodeIdsString = nodeIds.join(',')
-  await Workflow.update({ nodesIdCache: nodeIdsString }, { where: { id: workflowId } })
+  await Workflow.update({ nodesIdCache: nodeIdsString }, { where: { workflowId } })
 }
 
 async function createNode(nodeData: NodeData) {
@@ -65,6 +65,8 @@ async function createNode(nodeData: NodeData) {
     nodeConfig: nodeData.nodeConfig,
     parentNodeId: nodeData.parentNodeId,
   })
+
+  node.dataValues.nodeId = node.nodeId
 
   if (parentNode != null) {
     await parentNode.update({ nextNodeId: node.dataValues.nodeId })

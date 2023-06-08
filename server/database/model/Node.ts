@@ -1,30 +1,45 @@
-import { DataTypes } from "sequelize";
-import sequelize from "../connection";
-import Workflow from "./Workflow";
+import {
+  AutoIncrement,
+  ForeignKey,
+  Column,
+  Model,
+  PrimaryKey,
+  Table,
+  BelongsTo,
+  DataType,
+  AllowNull
+} from 'sequelize-typescript'
+import Workflow from './Workflow'
 
+@Table
+class Node extends Model {
+  @PrimaryKey
+  @AutoIncrement
+  @Column(DataType.INTEGER)
+  nodeId!: number
 
-const Node = sequelize.define('node', {
-  nodeId: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  workflowId: {
-    type: DataTypes.INTEGER,
-  },
-  nodeName: DataTypes.STRING,
-  nodeType: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    comment: "is the node actor name"
-  },
-  nodeParams: DataTypes.JSON,
-  nextNodeId: DataTypes.INTEGER,
-  parentNodeId: DataTypes.INTEGER,
-})
+  @ForeignKey(() => Workflow)
+  @Column(DataType.INTEGER)
+  workflowId!: number
 
-Node.belongsTo(Workflow, {
-  foreignKey: 'workflowId',
-})
+  @BelongsTo(() => Workflow, 'workflowId')
+  workflow?: Workflow
+
+  @Column(DataType.STRING(100))
+  nodeName?: string
+
+  @AllowNull(false)
+  @Column(DataType.STRING(100))
+  nodeType!: string
+
+  @Column(DataType.STRING(255))
+  nodeParams?: string
+
+  @Column(DataType.INTEGER)
+  nextNodeId?: number
+
+  @Column(DataType.INTEGER)
+  parentNodeId?: number
+}
 
 export default Node

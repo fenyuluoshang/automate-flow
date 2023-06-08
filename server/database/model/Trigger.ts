@@ -1,23 +1,36 @@
-import { DataTypes } from 'sequelize'
-import sequelize from '../connection'
+import {
+  AutoIncrement,
+  BelongsTo,
+  Column,
+  DataType,
+  ForeignKey,
+  Model,
+  PrimaryKey,
+  Table
+} from 'sequelize-typescript'
 import Workflow from './Workflow'
 
-const Trigger = sequelize.define('trigger', {
-  triggerId: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  workflowId: {
-    type: DataTypes.INTEGER
-  },
-  triggerUUID: {
-    type: DataTypes.UUIDV4,
-    defaultValue: DataTypes.UUIDV4,
-    allowNull: false
-  }
+@Table({
+  timestamps: true
 })
+class Trigger extends Model {
+  @PrimaryKey
+  @AutoIncrement
+  @Column(DataType.INTEGER)
+  triggerId!: number
 
-Trigger.belongsTo(Workflow, { foreignKey: 'workflowId' })
+  @ForeignKey(() => Workflow)
+  @Column(DataType.INTEGER)
+  workflowId!: number
+
+  @BelongsTo(() => Workflow, 'workflowId')
+  workflow?: Workflow
+
+  @Column({
+    type: DataType.UUIDV4,
+    defaultValue: DataType.UUIDV4
+  })
+  triggerUUID!: string
+}
 
 export default Trigger

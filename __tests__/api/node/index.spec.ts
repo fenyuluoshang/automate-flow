@@ -25,7 +25,7 @@ describe('Node API', () => {
       const res = await request.put('/api/workflow').send({
         name: TEST_WORKFLOW_NAME
       })
-      workflowId = res.body.data.id
+      workflowId = res.body.data.workflowId
     })
 
     it('should create a node', async () => {
@@ -159,7 +159,7 @@ describe('Node API', () => {
       })
       await Workflow.destroy({
         where: {
-          id: workflowId
+          workflowId,
         }
       })
     })

@@ -7,6 +7,8 @@ async function createWorkflow(name: string, description?: string) {
     status: 'inactive'
   })
 
+  workflow.dataValues.workflowId = workflow.workflowId
+
   return workflow
 }
 

@@ -13,7 +13,7 @@ describe('createWorkflow', () => {
   })
 
   it('should create a workflow with name', async () => {
-    await createWorkflow(TEST_WORKFLOW_NAME)
+    console.log(await createWorkflow(TEST_WORKFLOW_NAME))
     const workflow = await Workflow.findOne({
       where: {
         name: TEST_WORKFLOW_NAME

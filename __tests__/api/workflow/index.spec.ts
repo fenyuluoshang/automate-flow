@@ -20,7 +20,7 @@ describe('Workflow API', () => {
       name: TEST_WORKFLOW_NAME
     })
     expect(res.status).toBe(200)
-    expect(res.body.data).toHaveProperty('id')
+    expect(res.body.data).toHaveProperty('workflowId')
     expect(res.body.data).toHaveProperty('name')
     expect(res.body.data).toHaveProperty('createdAt')
     expect(res.body.data).toHaveProperty('updatedAt')

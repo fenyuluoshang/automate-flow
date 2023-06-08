@@ -1,19 +1,25 @@
+import { AutoIncrement, Column, PrimaryKey, Table, Model, DataType } from 'sequelize-typescript'
 
-import { DataTypes } from "sequelize";
-import sequelize from "../connection";
-
-const User = sequelize.define('user', {
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  name: DataTypes.STRING,
-  role: DataTypes.INTEGER,
-  password: DataTypes.STRING,
-  email: DataTypes.STRING,
-}, {
+@Table({
   timestamps: true
 })
+class User extends Model {
+  @PrimaryKey
+  @AutoIncrement
+  @Column(DataType.INTEGER)
+  userId!: number
+
+  @Column(DataType.STRING(100))
+  name?: string
+
+  @Column(DataType.INTEGER)
+  role?: number
+
+  @Column(DataType.STRING(100))
+  password?: string
+
+  @Column(DataType.STRING(100))
+  email?: string
+}
 
 export default User
