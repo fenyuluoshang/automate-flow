@@ -7,19 +7,19 @@ class User extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
-  userId!: number
+  declare userId: number
 
   @Column(DataType.STRING(100))
-  name?: string
+  declare name: string
 
   @Column(DataType.INTEGER)
-  role?: number
+  declare role: number
 
   @Column(DataType.STRING(100))
-  password?: string
+  declare password: string
 
   @Column(DataType.STRING(100))
-  email?: string
+  declare email: string
 }
 
 export default User

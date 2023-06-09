@@ -8,20 +8,20 @@ class Log extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
-  logId!: number;
+  declare logId: number;
 
   @ForeignKey(() => Workflow)
   @Column(DataType.INTEGER)
-  workflowId!: number;
+  declare workflowId: number;
 
   @BelongsTo(() => Workflow, 'workflowId')
-  workflow?: Workflow
+  declare workflow: Workflow
 
   @Column({
     type: DataType.ENUM,
     values: ['success', 'error', 'pending']
   })
-  status?: 'success' | 'error' | 'pending'
+  declare status: 'success' | 'error' | 'pending'
 }
 
 export default Log

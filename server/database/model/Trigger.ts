@@ -17,20 +17,20 @@ class Trigger extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
-  triggerId!: number
+  declare triggerId: number
 
   @ForeignKey(() => Workflow)
   @Column(DataType.INTEGER)
-  workflowId!: number
+  declare workflowId: number
 
   @BelongsTo(() => Workflow, 'workflowId')
-  workflow?: Workflow
+  declare workflow: Workflow
 
   @Column({
     type: DataType.UUIDV4,
     defaultValue: DataType.UUIDV4
   })
-  triggerUUID!: string
+  declare triggerUUID: string
 }
 
 export default Trigger

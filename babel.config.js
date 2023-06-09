@@ -1,10 +1,27 @@
 module.exports = {
   presets: [
-    ['@babel/preset-env', { targets: { node: 'current' } }],
+    [
+      '@babel/preset-typescript',
+      {
+        onlyRemoveTypeImports: true,
+        allowDeclareFields: true,
+        allExtensions: true,
+        allowNamespaces: true
+      }
+    ],
     ['@babel/preset-react'],
-    ['@babel/preset-typescript', { onlyRemoveTypeImports: true }]
+    ['@babel/preset-env', { targets: { node: 'current' } }]
   ],
   plugins: [
+    [
+      '@babel/plugin-transform-typescript',
+      {
+        onlyRemoveTypeImports: true,
+        allowDeclareFields: true,
+        allExtensions: true,
+        allowNamespaces: true
+      },
+    ],
     [
       'babel-plugin-root-import',
       {

@@ -17,24 +17,24 @@ class Workflow extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
-  workflowId!: number
+  declare workflowId: number
 
   @AllowNull(false)
   @Column(DataType.STRING(255))
-  name!: string
+  declare name: string
 
   @Column(DataType.STRING(255))
-  description?: string
+  declare description?: string
 
   @Column({
     type: DataTypes.ENUM,
     values: ['active', 'inactive'],
     defaultValue: 'active'
   })
-  status: 'active' | 'inactive' = 'active'
+  declare status: 'active' | 'inactive'
 
   @Column(DataType.INTEGER)
-  triggerId?: number
+  declare triggerId: number
 
   @Comment('JSON string of array of node ids')
   @Column(DataType.STRING(255))

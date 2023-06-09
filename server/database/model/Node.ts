@@ -16,30 +16,30 @@ class Node extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
-  nodeId!: number
+  declare nodeId: number
 
   @ForeignKey(() => Workflow)
   @Column(DataType.INTEGER)
-  workflowId!: number
+  declare workflowId: number
 
   @BelongsTo(() => Workflow, 'workflowId')
-  workflow?: Workflow
+  declare workflow: Workflow
 
   @Column(DataType.STRING(100))
-  nodeName?: string
+  declare nodeName: string
 
   @AllowNull(false)
   @Column(DataType.STRING(100))
-  nodeType!: string
+  declare nodeType: string
 
   @Column(DataType.STRING(255))
-  nodeParams?: string
+  declare nodeParams: string
 
   @Column(DataType.INTEGER)
-  nextNodeId?: number
+  declare nextNodeId: number
 
   @Column(DataType.INTEGER)
-  parentNodeId?: number
+  declare parentNodeId: number
 }
 
 export default Node
