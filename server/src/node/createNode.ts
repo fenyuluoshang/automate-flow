@@ -66,8 +66,6 @@ async function createNode(nodeData: NodeData) {
     parentNodeId: nodeData.parentNodeId,
   })
 
-  node.dataValues.nodeId = node.nodeId
-
   if (parentNode != null) {
     await parentNode.update({ nextNodeId: node.dataValues.nodeId })
   }

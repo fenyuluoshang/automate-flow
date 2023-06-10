@@ -4,7 +4,6 @@ import Trigger from '~server/database/model/Trigger'
 const webhookExpress = express()
 
 webhookExpress.use('/:id', async (req, res) => {
-  console.log(req.params.id)
   if (req.params.id != null) {
     const trigger = await Trigger.findOne({
       where: {
