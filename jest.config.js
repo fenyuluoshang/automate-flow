@@ -1,4 +1,6 @@
 module.exports = {
+  coverageProvider: 'v8',
+  coverageReporters: ['json', 'lcov', 'text', 'clover', 'html', 'cobertura'],
   collectCoverageFrom: [
     'web/src/**/*{.js,.jsx,.ts,.tsx}',
     'server/**/*{.js,.jsx,.ts,.tsx}',
@@ -14,9 +16,6 @@ module.exports = {
     '~/(.*)': ['<rootDir>/$1']
   },
   transform: {
-    'server/.+\\.(js|jsx|ts|tsx)$': 'ts-jest',
-    '__tests__/api/(.*)': 'ts-jest',
-    '__tests__/bacend/(.*)': 'ts-jest',
-    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
+    '^.+\\.(js|jsx|ts|tsx)$': 'ts-jest',
   }
 }
