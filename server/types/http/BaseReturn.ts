@@ -9,7 +9,7 @@ export class SuccessReturn<T> {
   message = 'success'
   data: T
   constructor(data: T) {
-    this.data = data
+    this.data = JSON.parse(JSON.stringify(data))
   }
 }
 

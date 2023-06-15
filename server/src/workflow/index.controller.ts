@@ -1,6 +1,6 @@
-import { Put, JsonController, BodyParam, Get } from 'routing-controllers'
+import { Put, JsonController, BodyParam, Get, Param } from 'routing-controllers'
 import createWorkflow from './createWorkflow'
-import { getWorkflows } from './getWorkflow';
+import { getWorkflowById, getWorkflows } from './getWorkflow';
 import { SuccessReturn } from '~server/types/http/BaseReturn';
 
 @JsonController('/workflow')
@@ -16,6 +16,12 @@ class WorkflowController {
   @Get('/')
   async getWorkflows() {
     return new SuccessReturn(await getWorkflows());
+  }
+
+  @Get('/:id')
+  async getWorkflowById(@Param('id') id: number) {
+    return new SuccessReturn((await getWorkflowById(id)));
+
   }
 }
 

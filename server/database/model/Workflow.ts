@@ -1,4 +1,3 @@
-import { DataTypes } from 'sequelize'
 import {
   AutoIncrement,
   Column,
@@ -7,8 +6,10 @@ import {
   Table,
   Comment,
   DataType,
-  AllowNull
+  AllowNull,
+  HasMany
 } from 'sequelize-typescript'
+import Node from './Node'
 
 @Table({
   timestamps: true
@@ -27,7 +28,7 @@ class Workflow extends Model {
   declare description?: string
 
   @Column({
-    type: DataTypes.ENUM,
+    type: DataType.ENUM,
     values: ['active', 'inactive'],
     defaultValue: 'active'
   })
@@ -39,6 +40,9 @@ class Workflow extends Model {
   @Comment('JSON string of array of node ids')
   @Column(DataType.STRING(255))
   nodesIdCache?: string
+
+  @HasMany(() => Node, 'workflowId')
+  nodes?: Node[]
 }
 
 export default Workflow
